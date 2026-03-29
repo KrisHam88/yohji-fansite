@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yohji Yamamoto</title>
+
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* NAV */
+.nav {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 3000;
+}
+
+.logo {
+  color: yellow;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-icon {
+  color: yellow;
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* HIDE ICON */
+.menu-icon.hide {
+  display: none;
+}
+
+/* MENU */
+.menu {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent;
+  z-index: 4000;
+}
+
+.menu.show {
+  display: flex;
+}
+
+.menu a {
+  color: yellow;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* HOME */
+.home-section {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: url("images/backgrounds/yohji-home.jpg") center/cover no-repeat;
+}
+
+.quote {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.quote p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* CIRCLE */
+.circle {
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+  width: 30px;
+  height: 30px;
+  background: yellow;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* POPUP */
+.popup-box {
+  position: fixed;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100vh;
+  background: rgba(0, 28, 78, 0.9);
+  transition: right 0.5s ease;
+  z-index: 2000;
+  display: flex;
+}
+
+.popup-box.show {
+  right: 0;
+}
+
+.popup-inner {
+  flex: 1;
+  padding: 120px 40px 100px;
+  color: #d8ecff;
+  overflow-y: scroll;
+}
+
+.popup-text p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.social {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.social a {
+  color: yellow;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="logo">YOHJI YAMAMOTO</div>
+
+  <div class="menu-icon" id="menuBtn">☰</div>
+
+  <div class="menu" id="menuBox">
+    <a href="info.html">INFO</a>
+    <a href="gallery.html">GALLERY</a>
+  </div>
+</nav>
+
+<div class="home-section">
+
+  <div class="quote">
+ 
+  </div>
+
+  <div class="circle" id="circleBtn"></div>
+
+  <div class="popup-box" id="popupBox">
+    <div class="popup-inner">
+
+      <div class="popup-text">
+  <p>
+    Yohji Yamamoto is one of the most influential designers in contemporary fashion. He is known for his avant-garde vision, his devotion to black, and his ability to transform clothing into a form of emotion and thought. His designs often reject conventional beauty and instead explore imperfection, asymmetry, layering, and movement.
+  </p>
+
+  <p>
+    Born in Tokyo in 1943, Yamamoto first studied law at Keio University before turning to fashion. Inspired by his mother, who worked as a dressmaker, he later enrolled at Bunka Fashion College. This shift from law to design became the beginning of a career that would change the language of modern fashion.
+  </p>
+
+  <p>
+    In 1972, he launched Y’s, a label that already showed his preference for simplicity, loose tailoring, and a quiet but powerful visual language. His Paris debut in 1981 introduced a radically different approach to fashion. While much of the fashion world celebrated glamour and bright color, Yamamoto presented dark, oversized, and intellectual silhouettes that challenged expectations.
+  </p>
+
+  <p>
+    His work often exists between contrasts: masculine and feminine, discipline and freedom, strength and softness. Yamamoto’s garments are not only about appearance, but also about feeling, identity, and the body’s relationship to space. This is why his clothing is often described as poetic.
+  </p>
+
+  <p>
+    Over the years, Yamamoto expanded his influence through labels such as Yohji Yamamoto, Y’s, and the collaboration Y-3 with Adidas. He continues to inspire designers, artists, and audiences around the world with a vision that remains deeply original, timeless, and uncompromising.
+  </p>
+
+  <p>
+    More than a designer, Yohji Yamamoto represents a philosophy. His work invites people to see fashion not simply as decoration, but as a way of thinking, questioning, and expressing individuality.
+  </p>
+</div>
+
+      <div class="social">
+        <a href="#">website</a>
+        <a href="#">shop</a>
+        <a href="#">instagram</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+const circleBtn = document.getElementById("circleBtn");
+const popupBox = document.getElementById("popupBox");
+const menuBtn = document.getElementById("menuBtn");
+const menuBox = document.getElementById("menuBox");
+
+/* POPUP */
+circleBtn.onclick = function(e) {
+  e.stopPropagation();
+  popupBox.classList.toggle("show");
+};
+
+/* MENU (FINAL FIX) */
+menuBtn.onclick = function(e) {
+  e.stopPropagation();
+  menuBox.classList.add("show");
+  menuBtn.classList.add("hide"); /* hide forever */
+};
+
+menuBox.onclick = function(e) {
+  e.stopPropagation();
+};
+
+popupBox.onclick = function(e) {
+  e.stopPropagation();
+};
+
+document.onclick = function() {
+  popupBox.classList.remove("show");
+};
+</script>
+
+</body>
+</html>
+What is this?
+🎯 FINAL RESULT

@@ -1,0 +1,253 @@
+give me final css 
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* NAV */
+.nav {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 3000;
+}
+
+.logo {
+  color: yellow;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-icon {
+  color: yellow;
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.menu-icon.hide {
+  display: none;
+}
+
+.menu {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  z-index: 4000;
+}
+
+.menu.show {
+  display: flex;
+}
+
+.menu a {
+  color: yellow;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* HOME */
+.home-section {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url("images/backgrounds/yohji-home.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.quote {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.quote p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.circle {
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+  width: 30px;
+  height: 30px;
+  background: yellow;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.popup-box {
+  position: fixed;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100vh;
+  background: rgba(0, 28, 78, 0.9);
+  transition: right 0.5s ease;
+  z-index: 2000;
+}
+
+.popup-box.show {
+  right: 0;
+}
+
+.popup-inner {
+  height: 100%;
+  padding: 140px 40px 100px 40px;
+  color: #d8ecff;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.popup-text {
+  max-width: 480px;
+}
+
+.popup-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.social {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+.social a {
+  color: yellow;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* INFO */
+.info-section {
+  position: relative;
+  height: 100vh;
+  background-image: url("images/backgrounds/yohji-info.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.info-panel {
+  width: 40%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 160px 40px 80px 40px;
+  color: white;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.info-panel p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+/* GALLERY */
+.gallery-section {
+  height: 100vh;
+  background-image: url("images/backgrounds/yohji-gallery.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 140px;
+  box-sizing: border-box;
+}
+
+.gallery-grid {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.gallery-box {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.blue-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 33, 89, 0.72);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: opacity 0.3s ease;
+}
+
+.blue-cover h3 {
+  margin: 0 0 12px 0;
+  font-size: 26px;
+  font-family: 'Caveat', cursive;
+  letter-spacing: 2px;
+  transform: rotate(-5deg);
+  text-transform: lowercase;
+  color: yellow;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.blue-cover p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+.gallery-box:hover .blue-cover,
+.gallery-box.open .blue-cover {
+  opacity: 0;
+}

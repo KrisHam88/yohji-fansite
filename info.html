@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yohji Yamamoto Info</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="logo">YOHJI YAMAMOTO</div>
+
+    <div class="menu-icon" id="menuBtn">☰</div>
+
+    <div class="menu" id="menuBox">
+      <a href="index.html">HOME</a>
+      <a href="info.html">INFO</a>
+      <a href="gallery.html">GALLERY</a>
+    </div>
+  </nav>
+
+  <div class="info-section">
+    <div class="info-panel">
+
+    <p> More than a designer, Yohji Yamamoto represents a philosophy. His work invites people to see fashion not simply as decoration, but as a way of thinking, questioning, and expressing individuality.
+    </p>
+      <p>1943 — Born in Tokyo, Japan</p>
+      <p>1969 — Bunka Fashion College</p>
+      <p>1972 — Launches Y’s</p>
+      <p>1977 — First Tokyo show</p>
+      <p>1981 — Paris debut</p>
+      <p>1984 — Mainichi Award</p>
+      <p>1985 — Chevalier, Ordre des Arts et des Lettres</p>
+      <p>1990 — Officer, Ordre des Arts et des Lettres</p>
+      <p>2002 — Y-3 with Adidas</p>
+      <p>2009 — Bankruptcy</p>
+      <p>2010 — Comeback</p>
+      <p>2011 — Commander, Ordre des Arts et des Lettres</p>
+      <p>2016 — CFDA Award</p>
+      <p>2021 — 40 years in Paris</p>
+      <p>Present — Active career</p>
+
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const menuBox = document.getElementById("menuBox");
+    const menuLinks = document.querySelectorAll(".menu a");
+
+    menuBtn.onclick = function(e) {
+      e.stopPropagation();
+      menuBox.classList.add("show");
+      menuBtn.classList.add("hide");
+    };
+
+    menuBox.onclick = function(e) {
+      e.stopPropagation();
+    };
+
+    menuLinks.forEach(function(link) {
+      link.addEventListener("click", function() {
+        menuBox.classList.remove("show");
+        menuBtn.classList.remove("hide");
+      });
+    });
+
+    document.onclick = function() {
+      menuBox.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    };
+  </script>
+
+</body>
+</html>
