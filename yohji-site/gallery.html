@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yohji Yamamoto Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="logo">YOHJI YAMAMOTO</a>
+
+    <div class="menu-icon" id="menuBtn">☰</div>
+
+    <div class="menu" id="menuBox">
+      <a href="info.html">INFO</a>
+      <a href="gallery.html">GALLERY</a>
+    </div>
+  </nav>
+
+  <!-- GALLERY -->
+  <div class="gallery-section">
+    <div class="gallery-grid">
+
+      <div class="gallery-box">
+        <img src="images/gallery/paris-1981.jpg">
+        <div class="blue-cover">
+          <h3>Paris Debut</h3>
+          <p>First Paris show introduced oversized black silhouettes and changed fashion history.</p>
+        </div>
+      </div>
+
+      <div class="gallery-box">
+        <img src="images/gallery/FW 1988–89.jpg">
+        <div class="blue-cover">
+          <h3>Fall/Winter</h3>
+          <p>Dramatic oversized forms with strong sculptural structure and movement.</p>
+        </div>
+      </div>
+
+      <div class="gallery-box">
+        <img src="images/gallery/transformation-Show.jpg">
+        <div class="blue-cover">
+          <h3>Transformation Show</h3>
+          <p>Garments transformed live on runway, showing movement and storytelling.</p>
+        </div>
+      </div>
+
+      <div class="gallery-box">
+        <img src="images/gallery/Y-3.jpg">
+        <div class="blue-cover">
+          <h3>Y-3 Collaboration</h3>
+          <p>A fusion of avant-garde fashion and sportswear with Adidas.</p>
+        </div>
+      </div>
+
+      <div class="gallery-box">
+        <img src="images/gallery/SS-2014.jpg">
+        <div class="blue-cover">
+          <h3>Spring/Summer</h3>
+          <p>Expressive calligraphy and graphic storytelling through clothing.</p>
+        </div>
+      </div>
+
+      <div class="gallery-box">
+        <img src="images/gallery/FW-2015.jpg">
+        <div class="blue-cover">
+          <h3>Fall/Winter</h3>
+          <p>Layered black garments with emotion, softness, and depth.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const menuBox = document.getElementById("menuBox");
+    const menuLinks = document.querySelectorAll(".menu a");
+    const boxes = document.querySelectorAll(".gallery-box");
+
+    menuBtn.onclick = function(e) {
+      e.stopPropagation();
+      menuBox.classList.add("show");
+      menuBtn.classList.add("hide");
+    };
+
+    menuBox.onclick = function(e) {
+      e.stopPropagation();
+    };
+
+    menuLinks.forEach(link => {
+      link.onclick = function() {
+        menuBox.classList.remove("show");
+        menuBtn.classList.remove("hide");
+      };
+    });
+
+    boxes.forEach(box => {
+      box.onclick = function(e) {
+        e.stopPropagation();
+        box.classList.toggle("open");
+      };
+    });
+
+    document.onclick = function() {
+      menuBox.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    };
+  </script>
+
+</body>
+</html>
